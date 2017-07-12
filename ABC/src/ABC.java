@@ -54,15 +54,15 @@ class ABC {
      * 
      * N: 3, K: 2
      * 
-     * A: 0 B: 0 C: 0 seq_length: 0 pairs: 0 current: 'C' seq: ''
+     * A: 0, B: 0, C: 0, seq_length: 0, pairs: 0, current: 'C', seq: ''
      * 
-     * A: 0 B: 0 C: 1 seq_length: 1 pairs: 0 current = 'B' seq: 'C'
+     * A: 0, B: 0, C: 1, seq_length: 1, pairs: 0, current = 'B', seq: 'C'
      * 
-     * A: 0 B: 1 C: 1 seq_length: 2 pairs: 1 current = 'A' seq: 'BC'
+     * A: 0, B: 1, C: 1, seq_length: 2, pairs: 1, current = 'A', seq: 'BC'
      * 
-     * A: 1 B: 1 C: 1 seq_length: 3 pairs: 3 current = 'C' seq: 'ABC'
+     * A: 1, B: 1, C: 1, seq_length: 3 pairs: 3 current = 'C' seq: 'ABC'
      * 
-     * A: 1 B: 1 C: 1 seq_length: 3 pairs: 2 current = 'C' seq: 'ACB'
+     * A: 0, B: 1, C: 2, seq_length: 3 pairs: 2 current = 'C' seq: 'BCC'
      * 
      * Idea:
      * 
@@ -151,6 +151,26 @@ class ABC {
         if (pairs < K) {
             seq.append("");
         } else {
+            int r = 0;
+            if (pairs > K) {
+                if (current == 'A') {// just added a B
+                    pairs -= a;
+                    pairs -= c;
+                    b--;
+                } else if (current == 'C') {// just added an A
+                    pairs -= c;
+                    pairs -= b;
+                    a--;
+                } else {// just added a C
+                    pairs -= a;
+                    pairs -= b;
+                    c--;
+                    // no need to add then remove a c
+                }
+                r = K - pairs;
+
+            }
+
             for (int i = 0; i < a + b + c; i++) {
                 if (i < a) {
                     seq.append('A');
@@ -160,12 +180,9 @@ class ABC {
                     seq.append('C');
                 }
             }
-            if (pairs > K) {
-                int r = pairs - K;
-                int index = seq_length - c - r;
-                char last_char = seq.charAt(seq_length - 1);
-                seq = seq.insert(index, last_char);
-                seq = seq.deleteCharAt(seq_length);
+
+            if (r > 0) {
+                seq.insert(r, 'C');
             }
 
             if (seq_length < N) {
