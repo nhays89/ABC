@@ -52,7 +52,7 @@ class ABC {
      * 
      * Sample model:
      * 
-     * N: 2, K: 3
+     * N: 3, K: 2
      * 
      * A: 0 B: 0 C: 0 seq_length: 0 pairs: 0 current: 'C' seq: ''
      * 
