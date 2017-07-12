@@ -6,21 +6,21 @@ You are given two s: N and K. Lun the dog is interested in strings that satisfy 
 The string has exactly N characters, each of which is either 'A', 'B' or 'C'.
 The string s has exactly K pairs (i, j) (0 <= i < j <= N-1) such that s[i] < s[j].
 If there exists a string that satisfies the conditions, find and return any such string. Otherwise, return an empty string.
-
-Definition
-Class: ABC
-Method: createString
-Parameters: int, int
-Returns: String
-Method signature: String createString(int N, int K)
-(be sure your method is public)
-Limits
-Time limit (s): 2.000
-Memory limit (MB): 256
-Constraints
-- N will be between 3 and 30, inclusive.
-- K will be between 0 and N(N-1)/2, inclusive.
-Examples
+<br>
+## Definition
+Class: ABC<br>
+Method: createString<br>
+Parameters: int, int<br>
+Returns: String<br>
+Method signature: String createString(int N, int K)<br>
+(be sure your method is public)<br>
+Limits<br>
+Time limit (s): 2.000<br>
+Memory limit (MB): 256<br>
+Constraints<br>
+- N will be between 3 and 30, inclusive.<br>
+- K will be between 0 and N(N-1)/2, inclusive.<br>
+## Examples
 0)
 3
 3
