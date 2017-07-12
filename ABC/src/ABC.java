@@ -66,27 +66,28 @@ class ABC {
      * 
      * Idea:
      * 
+     * 
      * Begin tallying the count of each character of the set {A,B,C} in a
      * sequence of characters by cycling through the set beginning with 'C' then
      * 'B' then 'A' logging the length of the sequence, the number of pairs, and
-     * the current character at each step until either the length of the
-     * sequence has reached N, or the number of pairs of the sequence have
-     * reached or exceeded K, in which case the number of pairs of the current
-     * sequence is reduced by the difference between the current number of pairs
-     * and K.
+     * the current character in the sequence at each step until either the
+     * length of the sequence has reached N, or the number of pairs of the
+     * sequence have reached or exceeded K, in which case the last character
+     * added is removed and a C is inserted in the previous sequence at index r,
+     * where r is the difference between K and the previous sequence pairs.
      * 
      * Reasoning:
      * 
-     * By creating the sequence in this manner, at each step we are gaurenteed
-     * that all A's will be at indicies less than all B's, and all B's will be
-     * at indicies less than all C's, and the maximum possible K can be reached
-     * at any N. Thus, when we add a new character to the sequence, wether it be
+     * By creating the sequence in this manner, at each step we are guaranteed
+     * that all A's will be at indices less than all B's, and all B's will be at
+     * indices less than all C's, and the maximum possible K can be reached at
+     * any N. Thus, when we add a new character to the sequence, whether it be
      * A, B, or C, we know that it will create a match with every other
      * character excluding those characters that are equal to the character
      * itself while also generating the most possible matches for the current
      * sequence length.
      * 
-     * For instance,when adding a B, we know that each A will be at an index
+     * For instance, when adding a B, we know that each A will be at an index
      * less than the new B, and each C will be at an index greater than the new
      * B; therefore, the B will match with each A and each C in the sequence.
      * 
@@ -109,8 +110,8 @@ class ABC {
      * alternatively, remove the last character added and return to the previous
      * sequence and insert a character, C, such that it increases the number of
      * pairs, r, by the difference between K and the previous sequence total.
-     * For simplicity sake, we will chose the later. Inserting a 'C' at index r
-     * will accomplish this task because each character at index less than r
+     * For simplicity sake, we will choose the latter. Inserting a 'C' at index
+     * r will accomplish this task because each character at index less than r
      * will be less than C. Thus, the previous sequence total plus r will equal
      * K pairs.
      * 
