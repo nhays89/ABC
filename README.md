@@ -42,11 +42,11 @@ Returns: "CABBACCBAABCBBB"<br>
 Please note that this is an example of a solution; other valid solutions will also be accepted.<br>
 ## Solution
 ### Idea
-Begin tallying the count of each character of the set {A,B,C} in a
-sequence of characters by cycling through the set beginning with 'C' then
-'B' then 'A' logging the length of the sequence, the number of pairs, and
-the current character in the sequence at each step until either the
-length of the sequence has reached N, or the number of pairs of the
+To begin, generate a string, s, of length N that contains K pairs given the 
+above definition of a pair by inserting characters from the set {C, B, A}
+beginning with 'C' then 'B' then 'A' logging the length of the sequence,
+the number of total pairs, and the current character in the sequence at each step until either the
+length of s has reached N, or the number of pairs of the
 sequence have reached or exceeded K, in which case the last character
 added is removed and a C is inserted in the previous sequence at index r,
 where r is the difference between K and the previous sequence pairs.
