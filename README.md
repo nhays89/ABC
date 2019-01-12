@@ -42,9 +42,8 @@ Returns: "CABBACCBAABCBBB"<br>
 Please note that this is an example of a solution; other valid solutions will also be accepted.<br>
 ## Solution
 ### Idea
-To begin, generate a string, s, of length N that contains K pairs given the 
-above definition of a pair by inserting characters from the set {C, B, A}
-beginning with 'C' then 'B' then 'A' logging the length of the sequence,
+To begin, generate a string, s, of length N by prepending characters from the set {C, B, A} to s
+beginning with 'C' then 'B' then 'A' logging the count of each character, the length of the sequence,
 the number of total pairs, and the current character in the sequence at each step until either the
 length of s has reached N, or the number of pairs of the
 sequence have reached or exceeded K, in which case the last character
